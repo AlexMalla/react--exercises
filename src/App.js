@@ -1,7 +1,14 @@
-import "./App.css";
+import React from "react";
+import Welcome from "./Welcome";
 
-function App() {
-  return <div className="App"></div>;
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Welcome name="Alex" />
+      </div>
+    );
+  }
 }
 
 export default App;
