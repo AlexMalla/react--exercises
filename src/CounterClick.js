@@ -1,33 +1,30 @@
-import React from "react";
+import react from 'react';
 
-class CounterClick extends React.Component {
-state = {
-    counter: this.props.initialValue
+class ClickCounter extends react.Component {
+
+    state = {
+        name: ""
+    }
+
+    handlerCounterIncrement = (event) => {
+        console.log(event)
+        this.setState((state) => {
+            return { name: event.target.innerText }
+        })
+
+    }
+
+    render() {
+        return (
+            <div>
+                <h1> Last button: {this.state.name}</h1>
+                <button onClick={this.handlerCounterIncrement}>First</button>
+                <button onClick={this.handlerCounterIncrement}>Second</button>
+                <button onClick={this.handlerCounterIncrement}>Third</button>
+
+            </div>
+        )
+    }
 }
 
-handleCounterIncrement = () => {
-    this.setState((state) => {
-        return {
-            counter: state.counter + this.props.incrementBy
-        }
-    })
-
-}
-
-render() {
-    return (
-        <div>
-            <h2>Counter: {this.state.counter}</h2>
-            <button onClick={this.handleCounterIncrement}>Increment</button>
-        </div>
-    )
-}
-
-}
-
-CounterClick.defaultProps = {
-    initialValue: 0,
-    incrementBy: 1,
-}
-
-export default CounterClick
+export default ClickCounter
