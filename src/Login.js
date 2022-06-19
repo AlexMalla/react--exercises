@@ -28,6 +28,16 @@ class Login extends React.Component {
     
         }
 
+        reset = () => {
+            this.setState(
+                {
+                    username: "",
+                    password: "",
+                    checkbox: false
+                }
+            )
+        }
+
     render() {
         return <form>
             <input type="text" name="username" value={this.state.username} onChange={this.HandleSubmit} placeholder="Username" required />
@@ -41,6 +51,10 @@ class Login extends React.Component {
                     : false)}>
                         Login
                         </button>
+
+                    <button onClick={this.reset}>
+                        Reset
+                    </button>
              </form>
     }
 }
