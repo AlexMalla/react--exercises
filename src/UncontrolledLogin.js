@@ -21,7 +21,7 @@ handleFormSubmit = (event) => {
 render() {
     return (
         <form ref={this._formRef} onSubmit={this.handleFormSubmit}>
-            <input name="username" placeholder="Username" />
+            <input name="username" placeholder="Username" autoFocus />
             <input name="password" type="password" placeholder="Password" />
             <input name="remember" type="checkbox" />
             <span>Remember me</span>
