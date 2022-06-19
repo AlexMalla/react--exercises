@@ -33,7 +33,7 @@ class UncontrolledLogin extends React.Component {
       render() {
         return (
           <form onSubmit={this.handleSubmit}>
-              <input type="text" ref={this.input} required placeholder="Username" />
+              <input type="text" ref={this.input} required placeholder="Username" autoFocus/>
               <input type="password" ref={this.input} required placeholder="Password" />
               <input type="checkbox" name="checkbox" value={this.input} />
             <span>remember me</span>
