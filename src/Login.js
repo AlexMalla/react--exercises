@@ -6,7 +6,8 @@ class Login extends React.Component {
     state = {
         username: '',
         password: '',
-        checkbox : false
+        checkbox : false,
+        login: true
     }
 
     HandleSubmit = (event) => {
@@ -22,14 +23,25 @@ class Login extends React.Component {
         })
     }
 
+        onLogin = (event) => {
+            console.log(this.state)
+    
+        }
 
     render() {
-        return <div>
+        return <form>
             <input type="text" name="username" value={this.state.username} onChange={this.HandleSubmit} placeholder="Username" required />
             <input type="password" name="password" value={this.state.password} onChange={this.HandleSubmit} placeholder="Password" required />
             <input type="checkbox" name="checkbox" value={this.state.checkbox} onChange={this.HandleSubmit} />
             <span>remember me</span>
-             </div>
+            <button type="submit"
+                    onClick={this.onLogin}
+                    disabled={(this.state.password === "" || this.state.username === ""
+                    ? true
+                    : false)}>
+                        Login
+                        </button>
+             </form>
     }
 }
 
