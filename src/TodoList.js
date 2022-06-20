@@ -21,6 +21,12 @@ export class TodoList extends React.Component {
         event.target.elements.taskInput.value = ""
     }
 
+    Reset = () => {
+        this.setState({
+            todos: []
+        })
+    }
+
     render() {
         return (
             <div>
@@ -36,6 +42,7 @@ export class TodoList extends React.Component {
                     <input name="taskInput"/>
                     <button>Add Task</button>
                 </form>
+                <button onClick={this.Reset}>Reset</button>
             </div>
         )
     }
