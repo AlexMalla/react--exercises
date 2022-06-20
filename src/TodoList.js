@@ -14,7 +14,7 @@ export class TodoList extends React.Component {
 
         const value = event.target.elements.taskInput.value
         this.setState({
-            item: value
+            todo: value
         })
 
         this.state.todos.push(value)
@@ -27,13 +27,23 @@ export class TodoList extends React.Component {
         })
     }
 
+    RemoveItem = (todo) => {
+        this.setState((state) => {
+            const array = state.todos.filter((item)=> {return item !== todo})
+            return {todos: array}
+        })
+    }
+
     render() {
         return (
             <div>
                 <div>
                     <ul>
-                        {this.state.todos.map((item, index) => (
-                            <li key={index}>{item}</li>
+                        {this.state.todos.map((todo, index) => (
+                            <div>
+                            <li key={index}>{todo}</li>
+                            <button onClick={()=>{this.RemoveItem(todo)}}>Remove task</button>
+                            </div>
                         ))}
                     </ul>
                 </div>
