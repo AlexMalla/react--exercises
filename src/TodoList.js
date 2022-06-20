@@ -1,45 +1,44 @@
 import React from "react";
-
 export class TodoList extends React.Component {
-
-state = {
-    todos: [
+    state = {
+        todos: [
         "Buy eggs",
         "Study React with Gianmarco",
         "Play FIFA",
-        "Sleep"
-    ]
-}
+        "Sleep",
+        ]
+    }
 
-InputChange = (event) => {
-    this.setState({
-        task: event.target.value
-    })
-}
+    AddTask = (event) => {
+        event.preventDefault()
 
-AddTask = (event) => {    
-    this.setState({
-        task: event.target.value
-    })
+        const value = event.target.elements.taskInput.value
+        this.setState({
+            item: value
+        })
 
-    this.state.todos.push(this.state.task)
-}
+        this.state.todos.push(value)
+        event.target.elements.taskInput.value = ""
+    }
 
+    render() {
+        return (
+            <div>
+                <div>
+                    <ul>
+                        {this.state.todos.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
 
-
-render() {
-    return <div>
-        <ul>
-            {this.state.todos.map((todo, index) =>(
-               <li key={index}>{todo}</li>
-            ))}
-        </ul>
-
-        <input name="newTask" onChange={this.InputChange} />
-        <button onClick={this.AddTask}>Add task</button>
-           </div>
-}
-
+                <form onSubmit={this.AddTask}>
+                    <input name="taskInput"/>
+                    <button>Add Task</button>
+                </form>
+            </div>
+        )
+    }
 }
 
 export default TodoList
