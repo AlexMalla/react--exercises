@@ -9,7 +9,8 @@ class Container extends React.Component {
 
         return (
         <div style = {containerStyle} >
-            {this.props.children}
+            <div>{this.props.title}</div>
+            <div>{this.props.children}</div>
         </div>)
     }
 }
