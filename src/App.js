@@ -1,9 +1,9 @@
 import "./App.css";
-import Welcome from "./Welcome";
+import Sum from "./Sum";
 
 function App() {
   return <div className="App">
-    <Welcome name="Alex" age="22" />
+    <Sum numbers={[1, 2, 3, 4]} />
   </div>;
 }
 
