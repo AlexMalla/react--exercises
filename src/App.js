@@ -1,9 +1,9 @@
 import "./App.css";
-import Form from "./Form";
+import GithubUser from "./GithubUser";
 
 function App() {
   return <div className="App">
-    <Form />
+    <GithubUser username={"AlexMalla"} />
   </div>;
 }
 
