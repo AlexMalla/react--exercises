@@ -1,13 +1,11 @@
 import "./App.css";
-import GithubUser from "./GithubUser";
-
+import GithubUserList from "./GithubUserList";
 
 function App() {
-  return (
-    <div>
-      <GithubUser username={'AlexMalla'} />
-    </div>
-  )
+  return <div className="App">
+    <GithubUserList />
+  </div>
 }
 
-export default App;
+
+export default App
