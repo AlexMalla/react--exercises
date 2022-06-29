@@ -4,8 +4,10 @@ function useGithubUser(username) {
 
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         fetch(`https://api.github.com/users/${username}`)
             .then(response => {
                 if (response.status !== 200) {
@@ -15,6 +17,7 @@ function useGithubUser(username) {
             })
             .then(json => {
                 console.log(json)
+                setLoading(false)
                 setData(json)
             })
             .catch(error => {
@@ -22,7 +25,7 @@ function useGithubUser(username) {
             })
     }, [username])
 
-    return { data, error }
+    return { data, error, loading }
 }
 
 
