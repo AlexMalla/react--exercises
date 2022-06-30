@@ -21,6 +21,7 @@ function App() {
       <Route path="/githubuser"  >
         <Route path=":username" element={<ShowGithubUser />} />
       </Route>
+      <Route path='*' element={<h1>This page doesn't exists.</h1>} />
     </Routes>
   </div>;
 }
