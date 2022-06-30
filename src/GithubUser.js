@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-function GithubUser({ username = "AlexMalla" }) {
+function GithubUser(username) {
 
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        fetch(`https://api.github.com/users/${username}`)
+        fetch(`https://api.github.com/users/${username = "AlexMalla"}`)
             .then(response => {
                 if (response.status !== 200) {
                     setError(new Error("User not found"))
@@ -29,8 +29,6 @@ function GithubUser({ username = "AlexMalla" }) {
             {data && <h1>Hi, my name is {data.name}.</h1>}
             {data && <h2>I live in {data.location}</h2>}
             {data && <h3>My GitHub is {data.html_url}</h3>}
-
-
         </div>
     )
 }
