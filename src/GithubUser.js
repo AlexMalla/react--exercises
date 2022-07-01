@@ -1,7 +1,9 @@
 import useGithubUser from "./useGithubUser"
 
 function GithubUser({ username }) {
-    const { data, error, isLoading, isValid } = useGithubUser(username)
+    const { data, error, isLoading, isValid, fetchGithubUser } = useGithubUser(username)
+
+
 
     return (
         <div style={{ marginTop: '2rem' }}>
@@ -14,9 +16,10 @@ function GithubUser({ username }) {
                     <h3>Username: {data.login}</h3>
                     <h3>Location: {data.location}</h3>
                     <h3>Github link: <a href={data.html_url}>{data.html_url}</a></h3>
-
                 </div>
             }
+            <button onClick={fetchGithubUser} style={{ marginLeft: "45%", width: "10%" }}>Fetch user</button>
+
 
         </div>
     )
