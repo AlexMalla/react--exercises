@@ -1,7 +1,12 @@
-import "./App.css";
+import GithubUser from "./GithubUser";
+
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div>
+      <GithubUser username="AlexMalla" />
+    </div>
+  )
 }
 
-export default App;
+export default App
