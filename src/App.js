@@ -3,6 +3,7 @@ import { store } from "./Store";
 import { counterIncrement, counterDecrement, counterReset } from "./CounterReducer";
 import { editTodo, removeTodo, addTodo } from "./todosReducer";
 
+//already done
 store.subscribe(() => {
   console.log(store.getState())
 })
